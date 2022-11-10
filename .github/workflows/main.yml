@@ -6,6 +6,7 @@ name: DevSecOps Pipeline
 # FTP_SERVER servidor de hostinger
 # FTP_USERNAME usuario de ftp de hostinger
 # FTP_PASSWORD contraseña del usuario de ftp
+# SCRIPT es el nombre del script.sql que se debera subir en el codigo para poder importar la base de datos
 # Author: Gaston Barbaccia
 
 on:
@@ -147,6 +148,6 @@ jobs:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        remoteFiles: "script.sql"
+        remoteFiles: ${{ secrets.SCRIPT }}
         workingDir: "."
         ignoreSSL: "1"
